@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ottawa Recycling Search</title>
+</head>
+<body>
+  <h1>♻️ Ottawa Recycling Search</h1>
+
+  <label for="itemInput">Enter an item:</label>
+  <input type="text" id="itemInput" placeholder="e.g., pizza box">
+  <button id="searchBtn">Check if recyclable</button>
+
+  <div id="recollect-container" style="margin-top:20px;"></div>
+
+  <script>
+    // Configure ReCollect for Ottawa Waste Wizard
+    _recollect_config = {
+      area: "Ottawa",
+      name: "wizard"
+    };
+  </script>
+  <script src="https://assets-ca.recollect.net/api/widget.js" charset="UTF-8"></script>
+
+  <script>
+    const input = document.getElementById("itemInput");
+    const btn = document.getElementById("searchBtn");
+
+    btn.addEventListener("click", () => {
+      const item = input.value.trim();
+      if (item) {
+        // ReCollect widget automatically searches when you set _recollect_search
+        window._recollect_search = item;
