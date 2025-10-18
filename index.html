@@ -27,8 +27,10 @@
     const input = document.getElementById("itemInput");
     const btn = document.getElementById("searchBtn");
 
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click"), () => {
       const item = input.value.trim();
       if (item) {
         // ReCollect widget automatically searches when you set _recollect_search
         window._recollect_search = item;
+      }
+    }
